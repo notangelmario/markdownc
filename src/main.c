@@ -1,6 +1,7 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include "lib/file.h"
-
+#include "lib/lexer.h"
 
 int main(int argc, char **argv) {
 	if (argc != 2) {
@@ -10,9 +11,12 @@ int main(int argc, char **argv) {
 
 	char *buffer;
 
-	get_file(argv[1], &buffer);
+	read_file(argv[1], &buffer);
 
-	printf("%s", buffer);
+	char *code = lexer(buffer);
 
+	printf("%s", code);
+
+	free(buffer);
 	return 0;
 }

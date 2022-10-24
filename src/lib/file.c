@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_file(char *filename, char **buffer) {
+int read_file(char *filename, char **buffer) {
 	unsigned long numbytes;
 	FILE *fp = fopen(filename, "r");
 	
@@ -21,5 +21,13 @@ int get_file(char *filename, char **buffer) {
 	fread(*buffer, sizeof(char), numbytes, fp);
 	fclose(fp);
 
+	return 0;
+}
+
+int write_file(char *filename, char **buffer) {
+	FILE *fp = fopen(filename, "w");
+	fprintf(fp, "%s", *buffer);
+
+	fclose(fp);
 	return 0;
 }
