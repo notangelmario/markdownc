@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
 
 	read_file(argv[1], &buffer);
 
-	char *code = lexer(buffer);
+	char *html = lexer(buffer);
 
 	free(buffer);
 	return 0;
