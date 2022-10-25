@@ -1,22 +1,34 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "lib/file.h"
-#include "lib/lexer.h"
-#include "lib/html.h"
+#include <mkdio.h>
 
 int main(int argc, char **argv) {
-	if (argc != 2) {
-		printf("Usage: %s TARGET -o OUTPUT\n\n  -o=OUTPUT\tFile to output\n", argv[0]);
+	if (argc != 3) {
+		printf("Usage: %s TARGET OUTPUT\n", argv[0]);
 		return 1;
 	}
 
-	char *buffer;
+	FILE *fpin = fopen(argv[1], "r");
+	FILE *fpout = fopen(argv[2], "w");
 
-	read_file(argv[1], &buffer);
+	if (fpin == NULL) {
+		fprintf(stderr, "Error getting input file!\n"); 
+		return 1;
+	}
 
-	char *markdown = lexer(buffer);
-	char *html = create_html_page(markdown);
+	if (fpout == NULL) {
+		fprintf(stderr, "Error getting output file\n");
+		return 1;
+	}
 
-	free(buffer);
+	MMIOT *doc = mkd_in(fpin, 0);	
+
+	markdown(doc, fpout, 0);
+
+	fclose(fpin);
+	fclose(fpout);
+
+	mkd_cleanup(doc);
+
 	return 0;
 }
