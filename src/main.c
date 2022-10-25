@@ -6,7 +6,7 @@
 
 int main(int argc, char **argv) {
 	if (argc != 2) {
-		printf("Usage:\n\t%s file.md\n", argv[0]);
+		printf("Usage: %s TARGET -o OUTPUT\n\n  -o=OUTPUT\tFile to output\n", argv[0]);
 		return 1;
 	}
 
