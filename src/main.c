@@ -15,8 +15,6 @@ int main(int argc, char **argv) {
 
 	char *code = lexer(buffer);
 
-	printf("%s", code);
-
 	free(buffer);
 	return 0;
 }
