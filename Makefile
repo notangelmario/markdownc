@@ -1,5 +1,5 @@
 CC=/usr/bin/gcc
-DEPS=src/lib/file.c src/lib/lexer.c
+DEPS=src/lib/file.c src/lib/lexer.c src/lib/html.c
 
 all: clean compile
 

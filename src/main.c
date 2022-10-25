@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "lib/file.h"
 #include "lib/lexer.h"
+#include "lib/html.h"
 
 int main(int argc, char **argv) {
 	if (argc != 2) {
@@ -13,7 +14,8 @@ int main(int argc, char **argv) {
 
 	read_file(argv[1], &buffer);
 
-	char *html = lexer(buffer);
+	char *markdown = lexer(buffer);
+	char *html = create_html_page(markdown);
 
 	free(buffer);
 	return 0;

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 int read_file(char *filename, char **buffer) {
-	unsigned long numbytes;
+	size_t numbytes;
 	FILE *fp = fopen(filename, "r");
 	
 	fseek(fp, 0L, SEEK_END);
