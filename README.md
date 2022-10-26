@@ -1,6 +1,4 @@
 # markdownc
 
-This is just a simple exercise project to learn more about C. This compiles markdown files
-and outputs them in HTML format.
-
-For now, only compatibility with Linux systems.
+This is a simple CLI tool to convert Markdown files to HTML. This was made for personal use.
+This tool is compatible with Linux only.
