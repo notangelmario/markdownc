@@ -21,9 +21,14 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
+	fprintf(fpout, "<html><body>");
+
 	MMIOT *doc = mkd_in(fpin, 0);	
 
 	markdown(doc, fpout, 0);
+
+	fprintf(fpout, "</body></html>");
+
 
 	fclose(fpin);
 	fclose(fpout);
