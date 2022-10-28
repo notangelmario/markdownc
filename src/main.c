@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <mkdio.h>
+#include "gfm.h"
 
 int main(int argc, char **argv) {
 	if (argc != 3) {
@@ -21,7 +22,7 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-	fprintf(fpout, "<html><body>");
+	fprintf(fpout, "<html><head><style>%s</style></head><body>", GFM_CSS);
 
 	MMIOT *doc = mkd_in(fpin, 0);	
 
